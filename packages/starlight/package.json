@@ -154,6 +154,7 @@
       "types": "./components/Search.astro.tsx",
       "import": "./components/Search.astro"
     },
+    "./favicon": "./favicon.ts",
     "./props": "./props.ts",
     "./schema": "./schema.ts",
     "./types": "./types.ts",
