@@ -1,7 +1,6 @@
 import { z } from 'astro/zod';
 import { parse as bcpParse, stringify as bcpStringify } from 'bcp-47';
 import { ComponentConfigSchema } from '../schemas/components';
-import { FaviconSchema } from '../schemas/favicon';
 import { HeadConfigSchema } from '../schemas/head';
 import { LogoConfigSchema } from '../schemas/logo';
 import { SidebarItemSchema } from '../schemas/sidebar';
@@ -179,9 +178,6 @@ const UserConfigSchema = z.object({
 		.boolean()
 		.default(true)
 		.describe('Define if the previous and next page links should be visible in the page footer.'),
-
-	/** The default favicon for your site which should be a path to an image in the `public/` directory. */
-	favicon: FaviconSchema(),
 
 	/** Specify paths to components that should override Starlight’s default components */
 	components: ComponentConfigSchema(),

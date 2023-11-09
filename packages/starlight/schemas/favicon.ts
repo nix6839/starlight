@@ -13,7 +13,6 @@ const faviconTypeMap = {
 export const FaviconSchema = () =>
 	z
 		.string()
-		.default('/favicon.svg')
 		.transform((favicon, ctx) => {
 			const ext = extname(favicon).toLowerCase();
 

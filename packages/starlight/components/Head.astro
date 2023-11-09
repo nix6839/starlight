@@ -27,15 +27,6 @@ const headDefaults: z.input<ReturnType<typeof HeadConfigSchema>> = [
 		tag: 'meta',
 		attrs: { name: 'generator', content: `Starlight v${version}` },
 	},
-	// Favicon
-	{
-		tag: 'link',
-		attrs: {
-			rel: 'shortcut icon',
-			href: fileWithBase(config.favicon.href),
-			type: config.favicon.type,
-		},
-	},
 	// OpenGraph Tags
 	{ tag: 'meta', attrs: { property: 'og:title', content: data.title } },
 	{ tag: 'meta', attrs: { property: 'og:type', content: 'article' } },
