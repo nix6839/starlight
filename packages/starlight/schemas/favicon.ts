@@ -11,6 +11,12 @@ const faviconTypeMap = {
 	'.svg': 'image/svg+xml',
 };
 
+const faviconKeys = Object.keys(faviconTypeMap);
+
+const INVALID_FAVICON_EXT_MESSAGE = `favicon must be a ${faviconKeys
+	.slice(0, faviconKeys.length - 1)
+	.join(', ')}, or ${faviconKeys.at(-1)} file`;
+
 export const FaviconSchema = () =>
 	z
 		.string()
@@ -22,7 +28,7 @@ export const FaviconSchema = () =>
 			if (!isFaviconExt(ext)) {
 				ctx.addIssue({
 					code: z.ZodIssueCode.custom,
-					message: 'favicon must be a .ico, .gif, .jpg, .png, or .svg file',
+					message: INVALID_FAVICON_EXT_MESSAGE,
 				});
 
 				return z.NEVER;

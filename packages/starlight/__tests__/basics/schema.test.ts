@@ -21,6 +21,8 @@ describe('FaviconSchema', () => {
 	});
 
 	test('throws on invalid favicon extensions', () => {
-		expect(() => FaviconSchema().parse('/favicon.pdf')).toThrow();
+		expect(() => FaviconSchema().parse('/favicon.pdf')).toThrow(
+			'favicon must be a .ico, .gif, .jpeg, .jpg, .png, or .svg file'
+		);
 	});
 });
