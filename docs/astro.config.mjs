@@ -1,3 +1,4 @@
+import { faviconHead } from '@astrojs/starlight/favicon';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
@@ -42,6 +43,7 @@ export default defineConfig({
 				discord: 'https://astro.build/chat',
 			},
 			head: [
+				faviconHead({ favicon: '/favicon.svg' }),
 				{
 					tag: 'script',
 					attrs: {
