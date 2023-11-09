@@ -11,6 +11,15 @@ describe('FaviconSchema', () => {
 		expect(favicon.type).toBe('image/jpeg');
 	});
 
+	test('returns the proper href and type attributes with query string', () => {
+		const icon = '/custom-icon.svg?v2';
+
+		const favicon = FaviconSchema().parse(icon);
+
+		expect(favicon.href).toBe(icon);
+		expect(favicon.type).toBe('image/svg+xml');
+	});
+
 	test('throws on invalid favicon extensions', () => {
 		expect(() => FaviconSchema().parse('/favicon.pdf')).toThrow();
 	});

@@ -1,5 +1,6 @@
 import { extname } from 'node:path';
 import { z } from 'astro/zod';
+import { fileWithBase } from '../utils/base';
 
 const faviconTypeMap = {
 	'.ico': 'image/x-icon',
@@ -14,7 +15,9 @@ export const FaviconSchema = () =>
 	z
 		.string()
 		.transform((favicon, ctx) => {
-			const ext = extname(favicon).toLowerCase();
+			const [path, query] = favicon.split('?') as [string, ...string[]];
+
+			const ext = extname(path).toLowerCase();
 
 			if (!isFaviconExt(ext)) {
 				ctx.addIssue({
@@ -26,7 +29,7 @@ export const FaviconSchema = () =>
 			}
 
 			return {
-				href: favicon,
+				href: `${fileWithBase(path)}${query === undefined ? '' : `?${query}`}`,
 				type: faviconTypeMap[ext],
 			};
 		})
