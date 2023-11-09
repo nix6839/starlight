@@ -1,3 +1,4 @@
+import { faviconHead } from '@astrojs/starlight/favicon';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
@@ -6,6 +7,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'My Docs',
+			head: [faviconHead({ favicon: '/favicon.svg' })],
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},

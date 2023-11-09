@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { faviconHead } from '@astrojs/starlight/favicon';
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
@@ -7,6 +8,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Docs with Tailwind',
+			head: [faviconHead({ favicon: '/favicon.svg' })],
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
